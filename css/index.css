@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* 其他样式属性重置 */
+}
+body{
+    background: linear-gradient(135deg, rgb(153,210,228) 0%,rgb(255,212,218) 100%);
+    width: 100vw;
+    height: 100vh;
+}
+
+/* 当视口宽度小于等于768px时应用以下样式 */
+@media (max-width: 768px) {
+    /* 在此处添加针对小屏幕的样式 */
+    
+}
+
+.head{
+    height: 100px;
+}
+.search_div{
+    width: 70%;
+    height: 40px;
+    margin: auto;
+    display: flex;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: #fff;
+}
+#searchText{
+    flex: 1;
+    outline: none;
+    border: none;
+    padding-left: 30px;
+    color: #d98021;
+    background-color: transparent;
+}
+#search_btn{
+    width: 60px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#search_icon{
+    width: 30px;
+    height: 30px;
+}
+.cardList{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+.card{
+    width: 250px;
+    height: 200px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    background-color: #d98021;
+}
