@@ -10,11 +10,7 @@ body{
     height: 100vh;
 }
 
-/* 当视口宽度小于等于768px时应用以下样式 */
-@media (max-width: 768px) {
-    /* 在此处添加针对小屏幕的样式 */
-    
-}
+
 
 .head{
     height: 100px;
@@ -62,4 +58,24 @@ body{
     margin-left: 10px;
     border-radius: 6px;
     background-color: #d98021;
+}
+
+/* 当视口宽度小于等于768px时应用以下样式 */
+@media (max-width: 768px) {
+    /* 在此处添加针对小屏幕的样式 */
+    .cardList{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+    }
+    .card{
+        width: 40vw;
+        height: 30vw;
+        margin-bottom: 20px;
+        margin-left: 10px;
+        border-radius: 6px;
+        background-color: #d98021;
+    }
 }
