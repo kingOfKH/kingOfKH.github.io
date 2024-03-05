@@ -55,6 +55,7 @@ body{
     margin-left: 10px;
     border-radius: 6px;
     background-color: #d98021;
+    overflow: hidden;
 }
 .cover{
     overflow: hidden;
@@ -113,7 +114,8 @@ body{
         width: 100%;
         font-size: 17px;
         font-weight: 600;
-        max-height: 44px;
+        max-height: 40px;
+        line-height: 20px;
         overflow: hidden;
         color: #5994e1;
         padding-left: 10px;
