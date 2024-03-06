@@ -1,3 +1,20 @@
+const cardList = document.getElementById('cardList')
+// 分页条 pageBar
+const pageBar = document.getElementById('pageBar')
+
+// 所有内容
+let allCards = []
+// 当前分类的内容
+let currentClassifyCards = []
+// 当前页面展示的内容
+let currentShowCards = []
+// 每页最多展示个数
+const perPageNum = 16
+// 当前是第几页
+let currentPageNum = 1
+// 总共多少页
+let totalPages
+
 var url = "../data/webCards.json"
 // 申明一个XMLHttpRequest
 var request = new XMLHttpRequest();
@@ -7,11 +24,18 @@ request.open("get", url);
 request.send(null);
 //XHR对象获取到返回信息后执行
 request.onload = function () {
-    const cardList = document.getElementById('cardList')
     // 解析获取到的数据
     var cards = JSON.parse(request.responseText);
+    allCards = cards
     console.log('data:',cards)
+    getCurrentClassifyCards('全部')
+    showThis(getCurrentShowCards(currentPageNum))
+    
+}
 
+
+const showThis = (cards) => {
+    cardList.innerHTML = ''
     cards.forEach(card => {
         console.log("card",card);
 
@@ -58,5 +82,163 @@ request.onload = function () {
     // 添加 card 到 cardList
         cardList.appendChild(card1)
     });
+}
 
+// 根据分类名获取当前分类所有card
+const getCurrentClassifyCards = (classify) => {
+    if(classify == '全部'){
+        // 计算总页数
+        totalPages = Math.ceil(allCards.length / perPageNum);
+        currentClassifyCards = allCards
+    }else{
+        let cur = []
+        allCards.forEach(card=>{
+            if(card.classify.includes(classify)){
+                cur.push(card)
+            }
+        })
+        // 计算总页数
+        totalPages = Math.ceil(cur.length / perPageNum);
+        currentClassifyCards = cur;
+    }
+}
+
+// 根据目标页面获取当前应展示card
+const getCurrentShowCards = (toPage) => {
+     // 确保页数在有效范围内
+     if (toPage < 1 || toPage > totalPages) {
+        console.log('页数超出范围');
+        return [];
+    }
+
+    // 根据当前页面生成分页栏
+    showPageBar(toPage)
+
+    // 计算起始索引和结束索引
+    const startIndex = (toPage - 1) * perPageNum;
+    const endIndex = Math.min(startIndex + perPageNum, currentClassifyCards.length);
+
+    // 获取指定页的数据并返回
+    const pageData = currentClassifyCards.slice(startIndex, endIndex);
+    return pageData;
+}
+
+// 根据目标页码生成分页栏
+const showPageBar = (toPage) => {
+    // 清空分页条 pageBar
+    pageBar.innerHTML = ''
+// 加载 上一页 按钮
+    const upPage = document.createElement('div')
+    upPage.className = 'pageItem'
+    upPage.id = 'upPage'
+    upPage.innerHTML = '上一页'
+    // 添加到 分页条
+    pageBar.appendChild(upPage)
+    // 判断
+    if(toPage <= 3){
+    // 加载 前三页 按钮
+        for(let i = 1; i <= Math.min(5,totalPages); i++){
+            const firstPage = document.createElement('div')
+            firstPage.className = 'pageItem'
+            if(i == toPage){
+                firstPage.className = 'pageItem pageItemActive'
+            }
+            firstPage.innerHTML = ''+i
+            // 添加到 分页条
+            pageBar.appendChild(firstPage)
+        }
+    // 添加省略号
+        const page = document.createElement('div')
+        page.className = 'pageItem'
+        page.innerHTML = '...'
+        // 添加到 分页条
+        pageBar.appendChild(page)
+    // 添加最后一列
+        const LastPage = document.createElement('div')
+        LastPage.className = 'pageItem'
+        LastPage.innerHTML = ''+totalPages
+        // 添加到 分页条
+        pageBar.appendChild(LastPage)
+    }else if(toPage >= totalPages - 2){
+    // 加载 第一页 按钮
+        const firstPage = document.createElement('div')
+        firstPage.className = 'pageItem'
+        firstPage.innerHTML = '1'
+        // 添加到 分页条
+        pageBar.appendChild(firstPage)
+
+    // 加载 末三页 按钮
+        for(let i = Math.max(1,totalPages-4); i <= totalPages; i++){
+            const thePage = document.createElement('div')
+            thePage.className = 'pageItem'
+            if(i == toPage){
+                thePage.className = 'pageItem pageItemActive'
+            }
+            thePage.innerHTML = ''+i
+            // 添加到 分页条
+            pageBar.appendChild(thePage)
+        }
+    }else{
+    // 加载 第一页 按钮
+        const firstPage = document.createElement('div')
+        firstPage.className = 'pageItem'
+        firstPage.innerHTML = '1'
+        // 添加到 分页条
+        pageBar.appendChild(firstPage)
+        if(toPage != 4){
+        // 添加省略号
+            const page = document.createElement('div')
+            page.className = 'pageItem'
+            page.innerHTML = '...'
+            // 添加到 分页条
+            pageBar.appendChild(page)
+        }
+    // 加载 中间五页 按钮
+        for(let i = toPage-2; i <= toPage+2; i++){
+            const thePage = document.createElement('div')
+            thePage.className = 'pageItem'
+            if(i == toPage){
+                thePage.className = 'pageItem pageItemActive'
+            }
+            thePage.innerHTML = ''+i
+            // 添加到 分页条
+            pageBar.appendChild(thePage)
+        }
+        if(toPage != totalPages-3){
+        // 添加省略号
+            const page = document.createElement('div')
+            page.className = 'pageItem'
+            page.innerHTML = '...'
+            // 添加到 分页条
+            pageBar.appendChild(page)
+        }
+    // 添加最后一列
+        const LastPage = document.createElement('div')
+        LastPage.className = 'pageItem'
+        LastPage.innerHTML = ''+totalPages
+        // 添加到 分页条
+        pageBar.appendChild(LastPage)
+    }
+
+
+    
+    // 加载 下一页 按钮
+    const downPage = document.createElement('div')
+    downPage.className = 'pageItem'
+    downPage.id = 'downPage'
+    downPage.innerHTML = '下一页'
+    // 添加到 分页条
+    pageBar.appendChild(downPage)
+// 加载 页码 输入框
+    const pageInput = document.createElement('input')
+    pageInput.id = 'pageInput'
+    pageInput.placeholder = '页码'
+    // 添加到 分页条
+    pageBar.appendChild(pageInput)
+// 加载 跳转 按钮
+    const toPageBtn = document.createElement('div')
+    toPageBtn.id = 'toPageBtn'
+    toPageBtn.innerHTML = '跳转'
+    // 添加到 分页条
+    pageBar.appendChild(toPageBtn)
 }
