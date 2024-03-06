@@ -5,29 +5,101 @@
     /* 其他样式属性重置 */
 }
 body{
-    background: linear-gradient(135deg, rgb(153,210,228) 0%,rgb(255,212,218) 100%);
+    background: #eee;
     width: 100vw;
     height: 100vh;
 }
 
+.navRow{
+    width: 100vw;
+    height: 60px;
+    background-color: #fff;
+    position: fixed;
+    display: flex;
+}
+.menuBar{
+    width: 60px;
+    height: 60px;
+    background: url('../imgs/菜单.png');
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+.myICOBar{
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.myICO{
+    height: 70%;
+    width: auto;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.top{
+    width: 100vw;
+    height: 300px;
+    padding-top: 50px;
+    background:url('../imgs/background.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.block{
+    height: 60px;
+}
+
+/* 修改滚动条的宽度 */
+::-webkit-scrollbar {
+    width: 6px; /* 修改滚动条宽度（适用于Chrome和Safari） */
+}
+::-webkit-scrollbar-thumb {
+    background-color: #808080; /* 修改滚动条拖动块的颜色 */
+    border-radius: 6px; /* 修改滚动条拖动块的圆角 */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #f0f0f000; /* 修改滚动条轨道的颜色 */
+  }
 
 
 .head{
-    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+.head_img{
+    width: 400px;
+    height: auto;
 }
 .search_div{
     width: 70%;
-    height: 40px;
+    height: 50px;
     margin: auto;
+    margin-bottom: 20px;
     display: flex;
     overflow: hidden;
-    border-radius: 20px;
-    background-color: #fff;
+    border-radius: 16px;
+    background-color: #ffffffb4;
+    border: solid #ffffff 1px;
+}
+.search_div:hover{
+    border: solid #fc85a7 1px;
 }
 #searchText{
     flex: 1;
     outline: none;
     border: none;
+    font-size: 17px;
     padding-left: 30px;
     color: #d98021;
     background-color: transparent;
@@ -35,6 +107,7 @@ body{
 #search_btn{
     width: 60px;
     height: 100%;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,33 +124,95 @@ body{
     box-sizing: border-box;
 }
 .card{
+    width: 30vw;
     margin-bottom: 20px;
     margin-left: 10px;
     border-radius: 6px;
-    background-color: #d98021;
+    background-color: #fffbf6;
+    box-shadow: #aaa 0 0 4px;
     overflow: hidden;
 }
+.card:hover{
+    box-shadow: #d60f16cc 0 0 8px;
+}
 .cover{
+    width: 30vw;
+    height: 20vw;
     overflow: hidden;
 }
 .cover_img{
     width: 100%;
     height: 100%;
+    object-fit:cover;
 }
-
+.msg{
+    width: 100%;
+}
+.flag{
+    padding-left: 10px;
+    width: 100%;
+    height: 30px;
+    font-size: 12px;
+    color: #d6410f;
+    display: flex;
+    align-items: center;
+}
+.dopt{
+    margin-right: 6px;
+    padding-bottom: 3px;
+    color: rgb(5, 206, 129);
+}
+.cTitle{
+    width: 100%;
+    font-size: 17px;
+    font-weight: 600;
+    max-height: 40px;
+    line-height: 20px;
+    overflow: hidden;
+    color: #5994e1;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
 
 /* 当视口宽度小于等于768px时应用以下样式 */
 @media (max-width: 768px) {
     /* 在此处添加针对小屏幕的样式 */
-    .cardList{
-        width: 100%;
+    .head_img{
+        width: 350px;
+        height: auto;
+    }
+    .search_div{
+        width: 70%;
+        height: 45px;
+        margin: auto;
+        margin-bottom: 20px;
         display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-        box-sizing: border-box;
+        overflow: hidden;
+        border-radius: 12px;
+    }
+    #searchText{
+        flex: 1;
+        outline: none;
+        border: none;
+        font-size: 15px;
+        padding-left: 30px;
+        color: #d98021;
+        background-color: transparent;
+    }
+    #search_btn{
+        width: 60px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #search_icon{
+        width: 30px;
+        height: 30px;
     }
     .card{
-        width: 42vw;
+        width: 45vw;
         margin-bottom: 20px;
         margin-left: 10px;
         border-radius: 6px;
@@ -87,14 +222,12 @@ body{
         box-shadow: #d6410f 0 0 8px;
     }
     .cover{
-        width: 42vw;
-        height: 28vw;
+        width: 45vw;
+        height: 30vw;
         background-color: aquamarine;
 
     }
-    .msg{
-        width: 100%;
-    }
+
     .flag{
         padding-left: 10px;
         width: 100%;
@@ -105,14 +238,13 @@ body{
         align-items: center;
     }
     .dopt{
-        font-size: 15px;
         margin-right: 6px;
         padding-bottom: 3px;
         color: rgb(5, 206, 129);
     }
     .cTitle{
         width: 100%;
-        font-size: 17px;
+        font-size: 15px;
         font-weight: 600;
         max-height: 40px;
         line-height: 20px;
@@ -122,4 +254,17 @@ body{
         padding-right: 10px;
         margin-bottom: 10px;
     }
+}
+
+
+.searchBar{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+}
+.bar{
+    color: #fff;
 }

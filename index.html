@@ -3,30 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>宝藏小蛮游戏</title>
-    <link rel="stylesheet" href="./css//index.css">
+    <title>宝藏小蛮资源库</title>
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-    <div class="head"></div>
-    <div class="search_div">
-        <input id="searchText" type="text" placeholder="搜索你的钟爱">
-        <div id="search_btn">
-            <img id="search_icon" src="./imgs/search.png" alt="">
+    <div class="navRow">
+        <!-- 菜单条 -->
+        <div class="menuBar"></div>
+        <!-- 页面标签条 -->
+        <div class="myICOBar">
+            <img src="./imgs/myICOBar.png" alt="" class="myICO">
         </div>
     </div>
-    <div class="cardList">
-        <div class="card">
-            <div class="cover">
-                <img class="cover_img" src="http://heistbeer.com/d%2Ffile%2Fp%2F2024-02-03%2F17069297057.jpg">
+
+    <div class="container">
+        <div class="block"></div>
+        <div class="top">
+            <div class="head">
+                <img class="head_img" src="./imgs/ico.png" alt="">
             </div>
-            <div class="msg">
-                <div class="flag"><span class="dopt">●</span></span>游戏</div>
-                <div class="cTitle">爱与生活:幸运老师 ver1.0.1 官方中文版 养成SLG+全CV+存档+特别补丁 1.8G</div>
+            <div class="search_div">
+                <input id="searchText" type="text" placeholder="搜索你的钟爱">
+                <div id="search_btn">
+                    <img id="search_icon" src="./imgs/search.png" alt="">
+                </div>
             </div>
         </div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
+        <div class="searchBar">
+            <div class="bar">单机游戏</div>
+        </div>
+        <div class="cardList" id="cardList">
+            
+        </div>
     </div>
 </body>
 <script src="./js/index.js"></script>
