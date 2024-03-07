@@ -1,6 +1,8 @@
 const cardList = document.getElementById('cardList')
 // 分页条 pageBar
 const pageBar = document.getElementById('pageBar')
+// 加载页面 onload
+const onload = document.getElementById('onload')
 
 // 所有内容
 let allCards = []
@@ -30,6 +32,7 @@ request.onload = function () {
     console.log('data:',cards)
     getCurrentClassifyCards('全部')
     showThis(getCurrentShowCards(currentPageNum))
+    onload.style.display = 'none'
     
 }
 
@@ -134,7 +137,9 @@ const showPageBar = (toPage) => {
     upPage.innerHTML = '上一页'
     // 添加点击事件
     upPage.addEventListener('click',() => {
-        showThis(getCurrentShowCards(currentPageNum-1))
+        if(currentPageNum > 1){
+            showThis(getCurrentShowCards(currentPageNum-1))
+        }
     })
     // 添加到 分页条
     pageBar.appendChild(upPage)
@@ -268,7 +273,9 @@ const showPageBar = (toPage) => {
     downPage.innerHTML = '下一页'
     // 添加点击事件
     downPage.addEventListener('click',() => {
-        showThis(getCurrentShowCards(currentPageNum+1))
+        if(currentPageNum < totalPages){
+            showThis(getCurrentShowCards(currentPageNum+1))
+        }
     })
     // 添加到 分页条
     pageBar.appendChild(downPage)
