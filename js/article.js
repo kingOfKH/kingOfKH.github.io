@@ -10,19 +10,18 @@ const articleBody = document.getElementById('articleBody')
 
 // 获取页面参数
 window.onload = function() {
-    // 解析 URL 中的参数
-    var urlParams = new URLSearchParams(window.location.search);
-    var cardValue = urlParams.get('card');
-    
-    // 判断是否存在参数
-    if (cardValue !== null) {
-        // 使用获取到的参数值
-        console.log('cardValue :', cardValue);
-        const card = JSON.parse(decodeURI(cardValue))
+    // 获取会话数据
+    // 在第二个页面中从会话存储中获取数据
+    var cardStr = sessionStorage.getItem('card');
+    if (cardStr) {
+        var card = JSON.parse(cardStr);
+        // 使用获取到的数据进行操作
         document.title = card.name
         articleTitle.innerHTML = card.detail
         articleTimeText.innerHTML = card.time
     } else {
-        console.log('Parameter not found');
+        // 没有找到存储的数据
     }
+
+
 };

@@ -365,8 +365,9 @@ search_btn.addEventListener('click',() => {
 // 点击card 事件 进入 detail 界面
 const cardClick = (card) => {
     const cardStr = JSON.stringify(card)
-
-    let ref = '../html/article.html?card='+encodeURI(cardStr)
+    // 存入会话
+    sessionStorage.setItem('card', cardStr)
+    let ref = '../html/article.html'
     window.location.href = ref
 }
 
