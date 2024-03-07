@@ -23,7 +23,7 @@
     margin: auto;
     height: auto;
     background-color: #fff;
-    padding: 20px;
+    padding: 24px;
     border-radius: 10px;
 }
 
@@ -71,4 +71,18 @@
     line-height: 30px;
     font-size: 12px;
     color: #7b8691;
+}
+
+.articlePTitle{
+    font-size: large;
+    font-weight: 600;
+    color: #fa5e8b;
+    letter-spacing: 2px;
+    padding-left: 5px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+.articleP{
+    margin: 16px auto;
+    line-height: 30px;
 }
