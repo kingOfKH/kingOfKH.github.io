@@ -1,8 +1,37 @@
+// 页面容器 container
+const container = document.getElementById('container')
 const cardList = document.getElementById('cardList')
 // 分页条 pageBar
 const pageBar = document.getElementById('pageBar')
 // 加载页面 onload
 const onload = document.getElementById('onload')
+// 菜单条 menuBar
+const menuBar = document.getElementById('menuBar')
+// 菜单条 标题ico
+const homeICO = document.getElementById('homeICO')
+// 菜单栏 menuSelect
+const menuSelect = document.getElementById('menuSelect')
+// 菜单栏 option
+const homeBtn = document.getElementById('homeBtn')
+// 菜单栏 menuMask
+const menuMask = document.getElementById('menuMask')
+
+// 主页搜索按钮 search_btn
+const search_btn = document.getElementById('search_btn')
+// 主页搜索框 search_btn
+const searchText = document.getElementById('searchText')
+
+menuBar.addEventListener('click',() => {
+    menuSelect.style.display = 'block'
+    menuMask.style.display = 'block'
+})
+menuMask.addEventListener('click',() => {
+    menuMask.style.display = 'none'
+    menuSelect.style.display = 'none'
+})
+
+
+
 
 // 所有内容
 let allCards = []
@@ -11,7 +40,7 @@ let currentClassifyCards = []
 // 当前页面展示的内容
 let currentShowCards = []
 // 每页最多展示个数
-const perPageNum = 16
+const perPageNum = 20
 // 当前是第几页
 let currentPageNum = 1
 // 总共多少页
@@ -123,6 +152,9 @@ const getCurrentShowCards = (toPage) => {
 
     // 获取指定页的数据并返回
     const pageData = currentClassifyCards.slice(startIndex, endIndex);
+    
+    // 滚动到页面顶部
+    container.scrollTo(0, 0);
     return pageData;
 }
 
@@ -297,3 +329,43 @@ const showPageBar = (toPage) => {
     // 添加到 分页条
     pageBar.appendChild(toPageBtn)
 }
+
+// 搜索并展示
+const searchCardAndShow = (searText)=>{
+    let current = []
+    allCards.forEach(item=>{
+        if(item.detail.includes(searText)){
+            current.push(item)
+        }
+    })
+    currentClassifyCards = current
+    // 计算总页数
+    totalPages = Math.ceil(currentClassifyCards.length / perPageNum);
+    showThis(getCurrentShowCards(1))
+}
+
+// 点击主页图标跳转首页
+homeICO.addEventListener('click',() => {
+    getCurrentClassifyCards('全部')
+    currentPageNum = 1
+    showThis(getCurrentShowCards(currentPageNum))
+    // 滚动到页面顶部
+    container.scrollTo(0, 0);
+})
+
+// 点击主页搜索按钮
+search_btn.addEventListener('click',() => {
+    searchCardAndShow(searchText.value)
+})
+
+// 点击菜单栏 homeBtn
+homeBtn.addEventListener('click',() => {
+    getCurrentClassifyCards('全部')
+    currentPageNum = 1
+    showThis(getCurrentShowCards(currentPageNum))
+    // 滚动到页面顶部
+    container.scrollTo(0, 0);
+
+    menuMask.style.display = 'none'
+    menuSelect.style.display = 'none'
+})

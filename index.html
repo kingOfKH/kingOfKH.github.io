@@ -10,10 +10,19 @@
 <body>
     <div class="navRow">
         <!-- 菜单条 -->
-        <div class="menuBar"></div>
+        <div class="menuBar" id="menuBar"></div>
         <!-- 页面标签条 -->
-        <div class="myICOBar">
+        <div id="homeICO" class="myICOBar">
             <img src="https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/myICOBar.png?inline=false" alt="" class="myICO">
+        </div>
+        <!-- 添加一个透明遮罩 -->
+        <div id="menuMask"></div>
+        <div class="menuSelect" id="menuSelect">
+            <div class="menuOption" id="homeBtn">首页</div>
+            <div class="menuOption">精品游戏</div>
+            <div class="menuOption">热门游戏</div>
+            <div class="menuOption">动漫漫画</div>
+            <div class="menuOption">小说图文</div>
         </div>
     </div>
 
@@ -26,7 +35,7 @@
         <div id="load_text">加载中</div>
     </div>
 
-    <div class="container">
+    <div id="container" class="container">
         <div class="block"></div>
         <div class="top">
             <div class="head">
