@@ -110,7 +110,7 @@ const getCurrentShowCards = (toPage) => {
         console.log('页数超出范围');
         return [];
     }
-
+    currentPageNum = toPage
     // 根据当前页面生成分页栏
     showPageBar(toPage)
 
@@ -132,6 +132,10 @@ const showPageBar = (toPage) => {
     upPage.className = 'pageItem'
     upPage.id = 'upPage'
     upPage.innerHTML = '上一页'
+    // 添加点击事件
+    upPage.addEventListener('click',() => {
+        showThis(getCurrentShowCards(currentPageNum-1))
+    })
     // 添加到 分页条
     pageBar.appendChild(upPage)
     // 判断
@@ -144,6 +148,10 @@ const showPageBar = (toPage) => {
                 firstPage.className = 'pageItem pageItemActive'
             }
             firstPage.innerHTML = ''+i
+            // 添加点击事件
+            firstPage.addEventListener('click',() => {
+                showThis(getCurrentShowCards(i))
+            })
             // 添加到 分页条
             pageBar.appendChild(firstPage)
         }
@@ -157,6 +165,10 @@ const showPageBar = (toPage) => {
         const LastPage = document.createElement('div')
         LastPage.className = 'pageItem'
         LastPage.innerHTML = ''+totalPages
+        // 添加点击事件
+        LastPage.addEventListener('click',() => {
+            showThis(getCurrentShowCards(totalPages))
+        })
         // 添加到 分页条
         pageBar.appendChild(LastPage)
     }else if(toPage >= totalPages - 2){
@@ -164,10 +176,21 @@ const showPageBar = (toPage) => {
         const firstPage = document.createElement('div')
         firstPage.className = 'pageItem'
         firstPage.innerHTML = '1'
+        // 添加点击事件
+        firstPage.addEventListener('click',() => {
+            showThis(getCurrentShowCards(1))
+        })
         // 添加到 分页条
         pageBar.appendChild(firstPage)
-
-    // 加载 末三页 按钮
+    // 添加省略号
+        if(toPage - 5 != 1){
+            const page = document.createElement('div')
+            page.className = 'pageItem'
+            page.innerHTML = '...'
+            // 添加到 分页条
+            pageBar.appendChild(page)
+        }
+    // 加载 末5页 按钮
         for(let i = Math.max(1,totalPages-4); i <= totalPages; i++){
             const thePage = document.createElement('div')
             thePage.className = 'pageItem'
@@ -175,6 +198,10 @@ const showPageBar = (toPage) => {
                 thePage.className = 'pageItem pageItemActive'
             }
             thePage.innerHTML = ''+i
+            // 添加点击事件
+            thePage.addEventListener('click',() => {
+                showThis(getCurrentShowCards(i))
+            })
             // 添加到 分页条
             pageBar.appendChild(thePage)
         }
@@ -183,6 +210,10 @@ const showPageBar = (toPage) => {
         const firstPage = document.createElement('div')
         firstPage.className = 'pageItem'
         firstPage.innerHTML = '1'
+        // 添加点击事件
+        firstPage.addEventListener('click',() => {
+            showThis(getCurrentShowCards(1))
+        })
         // 添加到 分页条
         pageBar.appendChild(firstPage)
         if(toPage != 4){
@@ -200,6 +231,10 @@ const showPageBar = (toPage) => {
             if(i == toPage){
                 thePage.className = 'pageItem pageItemActive'
             }
+            // 添加点击事件
+            thePage.addEventListener('click',() => {
+                showThis(getCurrentShowCards(i))
+            })
             thePage.innerHTML = ''+i
             // 添加到 分页条
             pageBar.appendChild(thePage)
@@ -216,6 +251,10 @@ const showPageBar = (toPage) => {
         const LastPage = document.createElement('div')
         LastPage.className = 'pageItem'
         LastPage.innerHTML = ''+totalPages
+        // 添加点击事件
+        LastPage.addEventListener('click',() => {
+            showThis(getCurrentShowCards(totalPages))
+        })
         // 添加到 分页条
         pageBar.appendChild(LastPage)
     }
@@ -227,6 +266,10 @@ const showPageBar = (toPage) => {
     downPage.className = 'pageItem'
     downPage.id = 'downPage'
     downPage.innerHTML = '下一页'
+    // 添加点击事件
+    downPage.addEventListener('click',() => {
+        showThis(getCurrentShowCards(currentPageNum+1))
+    })
     // 添加到 分页条
     pageBar.appendChild(downPage)
 // 加载 页码 输入框
@@ -239,6 +282,11 @@ const showPageBar = (toPage) => {
     const toPageBtn = document.createElement('div')
     toPageBtn.id = 'toPageBtn'
     toPageBtn.innerHTML = '跳转'
+    // 添加点击事件
+    toPageBtn.addEventListener('click',() => {
+        const toPage = document.getElementById('pageInput').value
+        showThis(getCurrentShowCards(toPage))
+    })
     // 添加到 分页条
     pageBar.appendChild(toPageBtn)
 }
