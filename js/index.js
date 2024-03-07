@@ -1,3 +1,8 @@
+window.onload = function() {
+
+    
+};
+
 // 页面容器 container
 const container = document.getElementById('container')
 const cardList = document.getElementById('cardList')
@@ -5,30 +10,14 @@ const cardList = document.getElementById('cardList')
 const pageBar = document.getElementById('pageBar')
 // 加载页面 onload
 const onload = document.getElementById('onload')
-// 菜单条 menuBar
-const menuBar = document.getElementById('menuBar')
-// 菜单条 标题ico
-const homeICO = document.getElementById('homeICO')
-// 菜单栏 menuSelect
-const menuSelect = document.getElementById('menuSelect')
-// 菜单栏 option
-const homeBtn = document.getElementById('homeBtn')
-// 菜单栏 menuMask
-const menuMask = document.getElementById('menuMask')
+
 
 // 主页搜索按钮 search_btn
 const search_btn = document.getElementById('search_btn')
 // 主页搜索框 search_btn
 const searchText = document.getElementById('searchText')
 
-menuBar.addEventListener('click',() => {
-    menuSelect.style.display = 'block'
-    menuMask.style.display = 'block'
-})
-menuMask.addEventListener('click',() => {
-    menuMask.style.display = 'none'
-    menuSelect.style.display = 'none'
-})
+
 
 
 
@@ -59,9 +48,26 @@ request.onload = function () {
     var cards = JSON.parse(request.responseText);
     allCards = cards
     console.log('data:',cards)
-    getCurrentClassifyCards('全部')
-    showThis(getCurrentShowCards(currentPageNum))
-    onload.style.display = 'none'
+
+    // 判断该展示的内容
+    // 解析 URL 中的参数
+    var urlParams = new URLSearchParams(window.location.search);
+    var classifyValue = urlParams.get('classify');
+    if(classifyValue!=null){
+        getCurrentClassifyCards(classifyValue)
+        currentPageNum = 1
+        showThis(getCurrentShowCards(currentPageNum))
+        // 滚动到页面顶部
+        container.scrollTo(0, 0);
+        onload.style.display = 'none'
+
+        console.log('上个页面传递:'+classifyValue);
+    }else{
+        getCurrentClassifyCards('全部')
+        showThis(getCurrentShowCards(currentPageNum))
+        onload.style.display = 'none'
+    }
+
     
 }
 
@@ -74,6 +80,10 @@ const showThis = (cards) => {
         // 创建 card
         var card1 = document.createElement('div');
         card1.className = 'card'
+        // 添加点击事件
+        card1.addEventListener('click',() => {
+            cardClick(card)
+        })
         // 创建 cover
         var cover = document.createElement('div');
         cover.className = 'cover'
@@ -344,28 +354,19 @@ const searchCardAndShow = (searText)=>{
     showThis(getCurrentShowCards(1))
 }
 
-// 点击主页图标跳转首页
-homeICO.addEventListener('click',() => {
-    getCurrentClassifyCards('全部')
-    currentPageNum = 1
-    showThis(getCurrentShowCards(currentPageNum))
-    // 滚动到页面顶部
-    container.scrollTo(0, 0);
-})
+
 
 // 点击主页搜索按钮
 search_btn.addEventListener('click',() => {
     searchCardAndShow(searchText.value)
 })
 
-// 点击菜单栏 homeBtn
-homeBtn.addEventListener('click',() => {
-    getCurrentClassifyCards('全部')
-    currentPageNum = 1
-    showThis(getCurrentShowCards(currentPageNum))
-    // 滚动到页面顶部
-    container.scrollTo(0, 0);
 
-    menuMask.style.display = 'none'
-    menuSelect.style.display = 'none'
-})
+// 点击card 事件 进入 detail 界面
+const cardClick = (card) => {
+    const cardStr = JSON.stringify(card)
+
+    let ref = '../html/article.html?card='+encodeURI(cardStr)
+    window.location.href = ref
+}
+

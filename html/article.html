@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章</title>
+
+    <link rel="stylesheet" href="../component/navRow/navRow.css">
+    <link rel="stylesheet" href="../css/article.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="navRow">
+        <!-- 菜单条 -->
+        <div class="menuBar" id="menuBar"></div>
+        <!-- 页面标签条 -->
+        <div id="homeICO" class="myICOBar">
+            <img src="https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/myICOBar.png?inline=false" alt="" class="myICO">
+        </div>
+        <!-- 添加一个透明遮罩 -->
+        <div id="menuMask"></div>
+        <div class="menuSelect" id="menuSelect">
+            <div class="menuOption" id="homeBtn">首页</div>
+            <div class="menuOption">精品游戏</div>
+            <div class="menuOption">热门游戏</div>
+            <div class="menuOption">动漫漫画</div>
+            <div class="menuOption">小说图文</div>
+        </div>
+    </div>
+
+    <!-- 详情页面 -->
+    <div class="detailContainer" id="detailContainer">
+        <div class="block"></div>
+        <div class="articlePage">
+            <div class="articleHeader">
+                <div id="articleTitle"></div>
+                <div class="articleMsg">
+                    <div class="articleTime">
+                        <div class="articleTimeIcon"></div>
+                        <div class="articleTimeText" id="articleTimeText">2022</div>
+                    </div>
+                    <div class="articleClassify">
+                        <div class="articleClassifyIcon"></div>
+                        <div class="articleClassifyText" id="articleClassifyText">游戏</div>
+                    </div>
+                </div>
+            </div>
+            <div class="articleBody" id="articleBody"></div>
+        </div>
+    </div>
+
+    <script src="../component/navRow/navRow.js"></script>
+    <script src="../js/article.js"></script>
+</body>
+</html>
