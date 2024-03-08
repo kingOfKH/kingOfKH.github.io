@@ -45,9 +45,19 @@ request.send(null);
 //XHR对象获取到返回信息后执行
 request.onload = function () {
     // 解析获取到的数据
-    var cards = JSON.parse(request.responseText);
-    allCards = cards
+    var cards1 = JSON.parse(request.responseText);
+    var cards = []
+    
     console.log('data:',cards)
+
+    // 清除 null
+    cards1.forEach(item=>{
+        if(item!=null){
+            cards.push(item)
+        }
+    })
+
+    allCards = cards
 
     // 判断该展示的内容
     // 解析 URL 中的参数
