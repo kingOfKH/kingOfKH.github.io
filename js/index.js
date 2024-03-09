@@ -160,6 +160,7 @@ const getCurrentClassifyCards = (classify) => {
 
 // 根据目标页面获取当前应展示card
 const getCurrentShowCards = (toPage) => {
+    
      // 确保页数在有效范围内
      if (toPage < 1 || toPage > totalPages) {
         console.log('页数超出范围');
@@ -210,27 +211,32 @@ const showPageBar = (toPage) => {
             firstPage.innerHTML = ''+i
             // 添加点击事件
             firstPage.addEventListener('click',() => {
+                if(i == currentPageNum)return
                 showThis(getCurrentShowCards(i))
             })
             // 添加到 分页条
             pageBar.appendChild(firstPage)
         }
-    // 添加省略号
-        const page = document.createElement('div')
-        page.className = 'pageItem'
-        page.innerHTML = '...'
-        // 添加到 分页条
-        pageBar.appendChild(page)
-    // 添加最后一列
-        const LastPage = document.createElement('div')
-        LastPage.className = 'pageItem'
-        LastPage.innerHTML = ''+totalPages
-        // 添加点击事件
-        LastPage.addEventListener('click',() => {
-            showThis(getCurrentShowCards(totalPages))
-        })
-        // 添加到 分页条
-        pageBar.appendChild(LastPage)
+        if(totalPages > 5){
+        // 添加省略号
+            const page = document.createElement('div')
+            page.className = 'pageItem'
+            page.innerHTML = '...'
+            // 添加到 分页条
+            pageBar.appendChild(page)
+        // 添加最后一列
+            const LastPage = document.createElement('div')
+            LastPage.className = 'pageItem'
+            LastPage.innerHTML = ''+totalPages
+            // 添加点击事件
+            LastPage.addEventListener('click',() => {
+                if(totalPages == currentPageNum)return
+                showThis(getCurrentShowCards(totalPages))
+            })
+            // 添加到 分页条
+            pageBar.appendChild(LastPage)
+        }
+
     }else if(toPage >= totalPages - 2){
     // 加载 第一页 按钮
         const firstPage = document.createElement('div')
@@ -238,6 +244,7 @@ const showPageBar = (toPage) => {
         firstPage.innerHTML = '1'
         // 添加点击事件
         firstPage.addEventListener('click',() => {
+            if(1 == currentPageNum)return
             showThis(getCurrentShowCards(1))
         })
         // 添加到 分页条
@@ -260,6 +267,7 @@ const showPageBar = (toPage) => {
             thePage.innerHTML = ''+i
             // 添加点击事件
             thePage.addEventListener('click',() => {
+                if(i == currentPageNum)return
                 showThis(getCurrentShowCards(i))
             })
             // 添加到 分页条
@@ -272,7 +280,9 @@ const showPageBar = (toPage) => {
         firstPage.innerHTML = '1'
         // 添加点击事件
         firstPage.addEventListener('click',() => {
+            if(1 == currentPageNum)return
             showThis(getCurrentShowCards(1))
+
         })
         // 添加到 分页条
         pageBar.appendChild(firstPage)
@@ -293,6 +303,7 @@ const showPageBar = (toPage) => {
             }
             // 添加点击事件
             thePage.addEventListener('click',() => {
+                if(i == currentPageNum)return
                 showThis(getCurrentShowCards(i))
             })
             thePage.innerHTML = ''+i
@@ -313,6 +324,7 @@ const showPageBar = (toPage) => {
         LastPage.innerHTML = ''+totalPages
         // 添加点击事件
         LastPage.addEventListener('click',() => {
+            if(totalPages == currentPageNum)return
             showThis(getCurrentShowCards(totalPages))
         })
         // 添加到 分页条

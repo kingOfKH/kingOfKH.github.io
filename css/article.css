@@ -171,7 +171,6 @@
 
 .downLoadBody2{
     width: 90%;
-    height: 200px;
     margin: auto;
     display: flex;
 }
@@ -205,6 +204,32 @@
     height: auto;
 }
 .downLoad2Img{
+    min-width: 50px;
     width: 100%;
     height: auto;
+}
+
+/* 当视口宽度小于等于768px时应用以下样式 */
+@media (max-width: 568px) {
+    .downLoadBody2{
+        width: 90%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .downLoad2Left{
+        flex: 1;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .downLoad2Right{
+        width: 50%;
+        margin: auto;
+        padding: 30px;
+        max-width: 300px;
+        min-width: 50px;
+        height: auto;
+    }
 }
