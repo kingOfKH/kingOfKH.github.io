@@ -5,6 +5,7 @@
     box-shadow: #a7a7a786 0 2px 6px;
     position: fixed;
     display: flex;
+    z-index: 99;
 }
 .menuBar{
     width: 60px;

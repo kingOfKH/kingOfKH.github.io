@@ -17,6 +17,9 @@ const search_btn = document.getElementById('search_btn')
 // 主页搜索框 search_btn
 const searchText = document.getElementById('searchText')
 
+// 主页 分类名称 默认为：最近更新
+const showBar = document.getElementById('showBar')
+
 
 
 
@@ -352,6 +355,7 @@ const showPageBar = (toPage) => {
 
 // 搜索并展示
 const searchCardAndShow = (searText)=>{
+    showBar.innerHTML = '搜索 '+searText
     let current = []
     allCards.forEach(item=>{
         if(item.detail.includes(searText)){
@@ -364,12 +368,28 @@ const searchCardAndShow = (searText)=>{
     showThis(getCurrentShowCards(1))
 }
 
+// 点击搜索框下提示
+const searchTags = document.getElementsByClassName('searchTag')
 
+for(let i = 0; i < searchTags.length; i++){
+    searchTags[i].addEventListener('click',() => {
+        searchCardAndShow(searchTags[i].innerHTML)
+    })
+}
 
 // 点击主页搜索按钮
 search_btn.addEventListener('click',() => {
     searchCardAndShow(searchText.value)
 })
+// 搜索框回车
+searchText.addEventListener('keypress', function(event) {
+    // 检查是否按下的是回车键
+    if (event.key === 'Enter') {
+        // 阻止默认行为，防止表单提交或者页面刷新
+        event.preventDefault();
+        searchCardAndShow(searchText.value)
+    }
+});
 
 
 // 点击card 事件 进入 detail 界面

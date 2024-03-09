@@ -10,7 +10,14 @@ const articleTimeText = document.getElementById('articleTimeText')
 const articleTextArea = document.getElementById('articleTextArea')
 // 获取文章图片体 articleImgArea
 const articleImgArea = document.getElementById('articleImgArea')
+// 获取 下载方式1 按钮 downLoadBtn
+const downLoadBtn = document.getElementById('downLoadBtn')
+// 获取 下载方式2 关键词 downLoad2Key
+const downLoad2Key = document.getElementById('downLoad2Key')
 
+
+// 下载链接 vxlink
+let vxlink = ''
 
 // 获取页面参数
 window.onload = function() {
@@ -24,6 +31,9 @@ window.onload = function() {
         articleTitle.innerHTML = card.detail
         articleClassifyText.innerHTML = card.classify
         articleTimeText.innerHTML = card.time
+
+        vxlink = card.vxlink
+        downLoad2Key.innerHTML = card.name
         // 合并标题和内容
         let articleContains = ""
         card.articleVaule.forEach(item => {
@@ -50,3 +60,7 @@ window.onload = function() {
 
 
 };
+
+downLoadBtn.addEventListener('click',() => {
+    document.location.href = vxlink
+})
