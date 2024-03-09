@@ -62,7 +62,7 @@
 .articleTimeIcon{
     width: 30px;
     height: 30px;
-    background: url('../imgs/time.png');
+    background: url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/time.png?inline=false');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 60% 60%;
@@ -75,7 +75,7 @@
 .articleClassifyIcon{
     width: 30px;
     height: 30px;
-    background: url('../imgs/star.png');
+    background: url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/star.png?inline=false');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 60% 60%;
