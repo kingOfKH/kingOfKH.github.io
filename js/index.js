@@ -410,7 +410,7 @@ const cardClick = (card) => {
     const cardStr = JSON.stringify(card)
     // 存入会话
     sessionStorage.setItem('card', cardStr)
-    let ref = '../html/article.html'
+    let ref = '../html/article.html?title='+card.name
     window.location.href = ref
 }
 

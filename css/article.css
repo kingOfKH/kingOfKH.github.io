@@ -209,7 +209,8 @@
     height: auto;
 }
 
-/* 当视口宽度小于等于768px时应用以下样式 */
+
+/* 当视口宽度小于等于568px时应用以下样式 */
 @media (max-width: 568px) {
     .downLoadBody2{
         width: 90%;
