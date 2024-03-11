@@ -4,8 +4,10 @@ const menuBar = document.getElementById('menuBar')
 const homeICO = document.getElementById('homeICO')
 // 菜单栏 menuSelect
 const menuSelect = document.getElementById('menuSelect')
-// 菜单栏 option
+// 菜单栏 option 主页
 const homeBtn = document.getElementById('homeBtn')
+// 菜单栏 niceGame 精品游戏
+const niceGame = document.getElementById('niceGame')
 // 菜单栏 menuMask
 const menuMask = document.getElementById('menuMask')
 
@@ -30,6 +32,11 @@ homeICO.addEventListener('click',() => {
 // 点击菜单栏 homeBtn
 homeBtn.addEventListener('click',() => {
     toHome('全部')
+})
+
+// 点击菜单栏 精品游戏
+niceGame.addEventListener("click",() => {
+    toHome('精品游戏')
 })
 
 // 跳转主页 携带参数：classify

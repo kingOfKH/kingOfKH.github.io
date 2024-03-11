@@ -224,12 +224,17 @@
         justify-content: center;
         align-items: center;
     }
+    .downLoad2Img{
+        width: 100%;
+        min-width: 100px;
+        height: auto;
+    }
     .downLoad2Right{
         width: 50%;
         margin: auto;
-        padding: 30px;
+        padding: 10px;
         max-width: 300px;
-        min-width: 50px;
+        min-width: 100px;
         height: auto;
     }
 }

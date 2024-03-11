@@ -148,7 +148,8 @@ const getCurrentClassifyCards = (classify) => {
     }else{
         let cur = []
         allCards.forEach(card=>{
-            if(card.classify.includes(classify)){
+            console.log(card);
+            if(card.classify != undefined && card.classify.includes(classify)){
                 cur.push(card)
             }
         })
