@@ -104,7 +104,7 @@ const showThis = (cards) => {
         var cover_img = document.createElement('img')
         if(card.imgArr != undefined)
         cover_img.src = card.imgArr[0]
-        cover_img.alt = card.name+'图片'
+        cover_img.alt = "该图片被和谐了..."
         cover_img.className = 'cover'
     // 添加 cover_img 到 cover
         cover.appendChild(cover_img)
@@ -410,7 +410,7 @@ const cardClick = (card) => {
     const cardStr = JSON.stringify(card)
     // 存入会话
     sessionStorage.setItem('card', cardStr)
-    let ref = '../html/article.html?title='+card.name
+    let ref = '../html/article.html'
     window.location.href = ref
 }
 
