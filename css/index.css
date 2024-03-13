@@ -65,7 +65,7 @@ body{
     width: 70%;
     height: 50px;
     margin: auto;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     display: flex;
     overflow: hidden;
     border-radius: 16px;
@@ -152,6 +152,7 @@ body{
     width: 30vw;
     height: 20vw;
     overflow: hidden;
+    position: relative;
 }
 .cover_img{
     pointer-events: none;
@@ -159,6 +160,18 @@ body{
     height: 100%;
     object-fit:cover;
 }
+.cover_load{
+    position: absolute;
+    top: 50%;
+    width: 20vw;
+    height: 20vw;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background:url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/load.gif?inline=false') center;
+    background-size: contain;
+    z-index: 2;
+}
+
 .msg{
     width: 100%;
 }
@@ -282,10 +295,10 @@ body{
         height: auto;
     }
     .search_div{
-        width: 80%;
+        width: 86%;
         height: 45px;
         margin: auto;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         display: flex;
         overflow: hidden;
         border-radius: 12px;
@@ -310,7 +323,7 @@ body{
         height: 30px;
     }
     .searchTagList{
-        width: 80%;
+        width: 86%;
         height: 40px;
         margin: auto;
     }
@@ -336,7 +349,7 @@ body{
         margin-bottom: 20px;
         margin-left: 10px;
         border-radius: 6px;
-        background-color: #fffbf6;
+        background-color: #fff;
     }
     .card:hover{
         box-shadow: #d6410f 0 0 8px;
@@ -344,8 +357,19 @@ body{
     .cover{
         width: 45vw;
         height: 30vw;
-        background-color: rgb(255, 149, 165);
+        background-color: #fffbf6;
 
+    }
+    .cover_load{
+        position: absolute;
+        top: 50%;
+        width: 20vw;
+        height: 20vw;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background:url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/load.gif?inline=false') center;
+        background-size: contain;
+        z-index: 2;
     }
 
     .flag{
@@ -376,6 +400,18 @@ body{
     }
 
 
+}
+
+
+@media (max-width: 520px) {
+    .head_img{
+        width: 300px;
+        height: auto;
+        pointer-events: none;
+    }
+    .top{
+        padding-top: 70px;
+    }
 }
 
 @media (max-width: 320px) {
