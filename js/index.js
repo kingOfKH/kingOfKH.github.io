@@ -21,7 +21,24 @@ const searchText = document.getElementById('searchText')
 const showBar = document.getElementById('showBar')
 
 
-
+// 格式化日期
+function formatDate(str) {
+    var today = new Date(+str);
+    var year = today.getFullYear();
+    var month = today.getMonth() + 1;
+    var day = today.getDate();
+ 
+    // 将月份和日期格式化为两位数
+    if (month < 10) {
+        month = '0' + month;
+    }
+    if (day < 10) {
+        day = '0' + day;
+    }
+ 
+    var formattedDate = year + '-' + month + '-' + day;
+    return formattedDate;
+ };
 
 
 
@@ -80,6 +97,11 @@ request.onload = function () {
         showThis(getCurrentShowCards(currentPageNum))
         onload.style.display = 'none'
     }
+    // 搜索内容
+    var searchText = urlParams.get('search');
+    if(searchText!=null){
+        searchCardAndShow(searchText)
+    }
 
     
 }
@@ -102,8 +124,8 @@ const showThis = (cards) => {
         cover.className = 'cover'
     // 创建 cover_img
         var cover_img = document.createElement('img')
-        cover_img.src = card.cover
-        cover_img.alt = "该图片被和谐了..."
+        cover_img.src = card.cover;
+        cover_img.alt = "图片太赞,被外星人偷走了..."
         cover_img.className = 'cover_img'
         // 添加加载监听
         cover_img.addEventListener('load',() => {
@@ -123,20 +145,45 @@ const showThis = (cards) => {
     // 创建 msg
         var msg = document.createElement('div');
         msg.className = 'msg'
-        // 创建 flag
+    // 创建 flag
         var flag = document.createElement('div');
         flag.className = 'flag'
-        // 创建 dopt
-        var dopt = document.createElement('span');
-        dopt.className = 'dopt'
-        dopt.innerText = '●'
-        // 创建分类
-        var classify = document.createElement('span');
-        classify.innerHTML = card.classify
-    // 添加到 flag
-        flag.appendChild(dopt)
-        flag.appendChild(classify)
-        // 创建 cTitle
+
+    // 创建 cardConfig
+        if(formatDate((new Date()).getTime()) == formatDate(card.time)){
+            var cardConfig = document.createElement('span');
+            cardConfig.className = 'cardConfig'
+            cardConfig.innerHTML = '今日更新'
+            // 添加到 flag
+            flag.appendChild(cardConfig)
+        }
+            
+        var classifies = card.classify.split('|')
+
+            var cardConfig = document.createElement('span');
+            cardConfig.className = 'cardConfigPink'
+            cardConfig.innerHTML = classifies[0]
+            flag.appendChild(cardConfig)
+
+            if(card.classify.includes('神级大作')){
+                var cardConfig = document.createElement('span');
+                cardConfig.className = 'cardConfigFire'
+                cardConfig.innerHTML = '神级大作'
+                flag.appendChild(cardConfig)
+            }
+
+            if(classifies.length >= 1){
+                for(let i = 1; i < classifies.length; i++){
+                    if(classifies[i] == '神级大作') continue;
+                    var cardConfig = document.createElement('span');
+                    cardConfig.className = 'cardConfigGreen'
+                    cardConfig.innerHTML = classifies[i]
+                    flag.appendChild(cardConfig)
+                }
+            }
+
+        
+
         var cTitle = document.createElement('div');
         cTitle.className = 'cTitle'
         cTitle.innerHTML = card.detail
