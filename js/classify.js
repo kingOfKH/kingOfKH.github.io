@@ -13,8 +13,8 @@ const search_btn = document.getElementById('search_btn')
 // 主页搜索框 search_btn
 const searchText = document.getElementById('searchText')
 
-// 主页 分类名称 默认为：最近更新
-const showBar = document.getElementById('showBar')
+// 主页 分类名称 默认为： 精品游戏
+const classifyTitle = document.getElementById('classifyTitle')
 
 
 // 格式化日期
@@ -89,6 +89,13 @@ window.onload = () => {
             showThis(getCurrentShowCards(currentPageNum))
             // 滚动到页面顶部
             container.scrollTo(0, 0);
+            if(classifyValue == '精品游戏'){
+                classifyTitle.innerHTML = '精品游戏'
+                document.getElementById('niceClassify').style.display = 'flex'
+            }else if(classifyValue == '热门游戏'){
+                classifyTitle.innerHTML = '热门游戏'
+                document.getElementById('fireClassify').style.display = 'flex'
+            }
             onload.style.display = 'none'
 
             console.log('上个页面传递:'+classifyValue);
