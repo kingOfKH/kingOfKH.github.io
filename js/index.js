@@ -67,8 +67,6 @@ request.onload = function () {
     // 解析获取到的数据
     var cards1 = JSON.parse(request.responseText);
     var cards = []
-    
-    console.log('data:',cards)
 
     // 清除 null
     cards1.forEach(item=>{
@@ -92,8 +90,6 @@ request.onload = function () {
         // 滚动到页面顶部
         container.scrollTo(0, 0);
         onload.style.display = 'none'
-
-        console.log('上个页面传递:'+classifyValue);
     }else{
         getCurrentClassifyCards('全部')
         showThis(getCurrentShowCards(currentPageNum))
@@ -112,7 +108,6 @@ request.onload = function () {
 const showThis = (cards) => {
     cardList.innerHTML = ''
     cards.forEach((card,index) => {
-        console.log("card",card);
 
     // 创建 card
         var card1 = document.createElement('div');
@@ -237,7 +232,6 @@ const getCurrentClassifyCards = (classify) => {
     }else{
         let cur = []
         allCards.forEach(card=>{
-            console.log(card);
             if(card.classify != undefined && card.classify.includes(classify)){
                 cur.push(card)
             }
@@ -253,7 +247,6 @@ const getCurrentShowCards = (toPage) => {
     
      // 确保页数在有效范围内
      if (toPage < 1 || toPage > totalPages) {
-        console.log('页数超出范围');
         return [];
     }
     currentPageNum = toPage

@@ -59,6 +59,7 @@ window.onload = () => {
     var urlParams = new URLSearchParams(window.location.search);
     var classifyValue = urlParams.get('classify');
     if(classifyValue!=null){
+        document.title = classifyValue
 
         var url = "../data/"+classifyValue+".json"
         // 申明一个XMLHttpRequest
