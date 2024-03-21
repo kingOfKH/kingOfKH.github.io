@@ -31,16 +31,10 @@ h1{
 .top{
     width: 100vw;
     height: 320px;
-
+    padding-top: 50px;
     background:url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/background.jpg?inline=false') no-repeat;
     background-position: center;
     background-size: cover;
-
-    display: flex;
-    flex-direction: column;
-    justify-content:flex-end;
-    align-items: center;
-    padding-bottom: 20px;
 }
 .block{
     height: 60px;
@@ -72,7 +66,8 @@ h1{
 .search_div{
     width: 70%;
     height: 50px;
-    margin: 10px 0;
+    margin: auto;
+    margin-bottom: 10px;
     display: flex;
     overflow: hidden;
     border-radius: 16px;
@@ -106,17 +101,12 @@ h1{
     height: 30px;
     pointer-events: none;
 }
-
 .searchTagList{
     width: 70%;
-    height: auto;
-
-    background-color: #20202051;
-    border-radius: 20px;
+    height: 40px;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
-
-    margin-top: 10px;
 }
 .tagTitle{
     color: #fff;
@@ -128,7 +118,7 @@ h1{
     align-items: end;
 }
 .searchTag{
-    color: #ffffff;
+    color: #fff;
     height: 20px;
     font-size: 12px;
     display: flex;
@@ -137,7 +127,6 @@ h1{
     margin: 0 5px;
 }
 .searchTag:hover{
-    color: #ff94ba;
     font-weight: 600;
 }
 
@@ -389,8 +378,7 @@ h1{
     height: 24px;
     line-height: 24px;
     color: #6a7177;
-    font-size: 14px;
-    letter-spacing: 2px;
+    font-size: 16px;
     font-weight: normal;
     padding-left: 20px;
 }
@@ -412,6 +400,7 @@ h1{
     color: #ce3268;
     padding-left: 20px;
 }
+
 
 
 /* 当视口宽度小于等于768px时应用以下样式 */
@@ -449,7 +438,7 @@ h1{
     .search_div{
         width: 86%;
         height: 45px;
-
+        margin: auto;
         margin-bottom: 10px;
         display: flex;
         overflow: hidden;
@@ -476,8 +465,8 @@ h1{
     }
     .searchTagList{
         width: 86%;
-
-
+        height: 40px;
+        margin: auto;
     }
     .tagTitle{
         color: #fff;
@@ -488,6 +477,7 @@ h1{
         align-items: end;
     }
     .searchTag{
+        color: #fff;
         height: 20px;
         font-size: 12px;
         display: flex;
@@ -555,7 +545,9 @@ h1{
         height: auto;
         pointer-events: none;
     }
-    
+    .top{
+        padding-top: 70px;
+    }
 }
 
 @media (max-width: 320px) {
