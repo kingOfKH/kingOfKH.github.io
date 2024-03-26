@@ -57,19 +57,25 @@ let touchEndX = 0;
 
 slides.addEventListener('touchstart', (e) => {
   touchStartX = e.touches[0].clientX;
+  clearInterval(timer); // 清除之前的定时器
+});
+
+slides.addEventListener('touchmove', (e) => {
+  touchMoveX = e.touches[0].clientX;
+  const offsetX =  touchStartX - touchMoveX;
+  slides.style.transform = `translateX(-${slideWidth * currentSlide + offsetX}px)`;
 });
 
 slides.addEventListener('touchend', (e) => {
-  touchEndX = e.changedTouches[0].clientX;
-  if (touchEndX - touchStartX > 50) {
-    clearInterval(timer); // 清除之前的定时器
+  const distance = touchMoveX - touchStartX;
+  if (distance > 50 && currentSlide > 0) {
     prevSlide();
-    timer = setInterval(nextSlide, 2000); // 重新设置定时器
-  } else if (touchStartX - touchEndX > 50) {
-    clearInterval(timer); // 清除之前的定时器
+  } else if (distance < -50 && currentSlide < totalSlides - 1) {
     nextSlide();
-    timer = setInterval(nextSlide, 2000); // 重新设置定时器
+  } else {
+    goToSlide(currentSlide);
   }
+  timer = setInterval(nextSlide, 3000); // 重新设置定时器
 });
 
 
@@ -81,3 +87,4 @@ window.addEventListener('resize', () => {
 document.addEventListener('resize', () => {
   slideWidth = slides.clientWidth;
 });
+

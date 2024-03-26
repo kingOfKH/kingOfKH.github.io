@@ -36,7 +36,9 @@
     align-items:flex-end;
     padding-bottom: 52px;
     font-size: 1.2em;
-    color: white;
+    color: rgba(255, 255, 255, 0.868);
+    letter-spacing: 4px;
+    font-weight: 600;
   }
 
   .slideNav {
@@ -60,4 +62,11 @@
 
   .slideDot.active {
     background-color: rgba(255, 59, 88, 0.911);
+  }
+
+
+  @media (max-width: 500px) {
+    .slideDot{
+      margin: 0 4px;
+    }
   }
