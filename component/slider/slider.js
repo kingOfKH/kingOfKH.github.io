@@ -56,20 +56,19 @@ let touchStartX = 0;
 let touchEndX = 0;
 
 slides.addEventListener('touchstart', (e) => {
-  e.preventDefault(); // 阻止默认的触摸事件行为
   touchStartX = e.touches[0].clientX;
   clearInterval(timer); // 清除之前的定时器
+  
 });
 
 slides.addEventListener('touchmove', (e) => {
-  e.preventDefault(); // 阻止默认的触摸事件行为
   touchMoveX = e.touches[0].clientX;
   const offsetX =  touchStartX - touchMoveX;
   slides.style.transform = `translateX(-${slideWidth * currentSlide + offsetX}px)`;
+  e.preventDefault(); // 阻止默认的触摸事件行为
 });
 
 slides.addEventListener('touchend', (e) => {
-  e.preventDefault(); // 阻止默认的触摸事件行为
   const distance = touchMoveX - touchStartX;
   if (distance > 50 && currentSlide > 0) {
     prevSlide();
@@ -80,6 +79,8 @@ slides.addEventListener('touchend', (e) => {
   }
   timer = setInterval(nextSlide, 3000); // 重新设置定时器
 });
+
+
 
 
 // 监听窗口大小变化并重新设置slideWidth
