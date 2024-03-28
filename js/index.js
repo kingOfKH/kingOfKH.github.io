@@ -464,6 +464,7 @@ const searchCardAndShow = (searText)=>{
             current.push(item)
         }
     })
+    document.getElementById('main-slider').style.display = 'none'
     currentClassifyCards = current
     // 计算总页数
     totalPages = Math.ceil(currentClassifyCards.length / perPageNum);
