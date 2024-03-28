@@ -85,7 +85,7 @@
     padding-left: 20px;
     font-size: 17px;
     margin-bottom: 30px;
-    border: #3c3c3cb3 dashed 1px;
+    border: #ff0070 dashed 1px;
 }
 .toastInput:hover{
     border: #ff0070 solid 1px;
@@ -235,9 +235,14 @@
     }
     #searchToast{
         background-color: #3d3d3d;
+        border: #0000009a solid 1px;
     }
     .toastInput{
         background-color: #999;
+    }
+    .toastInput::placeholder{
+        color: #373737ca;
+        font-size: 15px;
     }
     .menuSelect{
         background-color: #232323;
