@@ -62,10 +62,17 @@ slides.addEventListener('touchstart', (e) => {
 });
 
 slides.addEventListener('touchmove', (e) => {
-  touchMoveX = e.touches[0].clientX;
-  const offsetX =  touchStartX - touchMoveX;
-  slides.style.transform = `translateX(-${slideWidth * currentSlide + offsetX}px)`;
-  e.preventDefault(); // 阻止默认的触摸事件行为
+  if (e.touches.length === 1) {
+    touchMoveX = e.touches[0].clientX;
+    const offsetX = touchStartX - touchMoveX;
+    
+    // 判断是否水平滚动
+    if (Math.abs(offsetX) > Math.abs(touchStartY - touchMoveY)) {
+      e.preventDefault(); // 只阻止默认的触摸事件行为，当水平滚动时
+    }
+    
+    slides.style.transform = `translateX(-${slideWidth * currentSlide + offsetX}px)`;
+  }
 });
 
 slides.addEventListener('touchend', (e) => {
