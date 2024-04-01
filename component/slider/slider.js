@@ -73,14 +73,15 @@ slides.addEventListener('touchmove', (e) => {
   const offsetY = touchStartY - touchMoveY;
   // 判断是否水平滚动
   if (Math.abs(offsetX) > Math.abs(offsetY)) {
+    console.log('阻止默认');
     e.preventDefault(); // 只阻止默认的触摸事件行为，当水平滚动时
   }
   slides.style.transform = `translateX(-${slideWidth * currentSlide + offsetX}px)`;
-  // 判断触摸移动过程中是否超出幻灯片范围，如果超出则立即阻止默认事件
-  const rect = slides.getBoundingClientRect();
-  if (touchMoveX < rect.left || touchMoveX > rect.right || touchMoveY < rect.top || touchMoveY > rect.bottom) {
-    e.preventDefault();
-  }
+  // // 判断触摸移动过程中是否超出幻灯片范围，如果超出则立即阻止默认事件
+  // const rect = slides.getBoundingClientRect();
+  // if (touchMoveX < rect.left || touchMoveX > rect.right || touchMoveY < rect.top || touchMoveY > rect.bottom) {
+  //   e.preventDefault();
+  // }
 });
 
 slides.addEventListener('touchend', (e) => {
