@@ -73,7 +73,6 @@ slides.addEventListener('touchmove', (e) => {
   const offsetY = touchStartY - touchMoveY;
   // 判断是否水平滚动
   if (Math.abs(offsetX) > Math.abs(offsetY)) {
-    console.log('阻止默认');
     e.preventDefault(); // 只阻止默认的触摸事件行为，当水平滚动时
   }
   slides.style.transform = `translateX(-${slideWidth * currentSlide + offsetX}px)`;
