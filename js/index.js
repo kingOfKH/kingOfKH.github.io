@@ -548,7 +548,6 @@ searchText.addEventListener('keypress', function(event) {
     }
 });
 
-
 // 点击card 事件 进入 detail 界面
 const cardClick = (card) => {
     let ref = ''
