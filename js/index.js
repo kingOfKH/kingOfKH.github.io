@@ -497,6 +497,12 @@ const showPageBar = (toPage) => {
 
 // 搜索并展示
 const searchCardAndShow = (searText)=>{
+    // 展示最近更新
+    hideMain.style.display = 'block'
+    latestResource.style.display = 'none'
+    niceResource.style.display = 'none'
+    fireResource.style.display = 'none'
+
     showBar.innerHTML = '搜索 '+searText
     let current = []
     allCards.forEach(item=>{
