@@ -183,16 +183,33 @@
     background-color: #fff;
 }
 .downLoadText{
-    padding: 0 30px;
-    font-size: 12px;
+    text-align: center;
+    padding: 8px 20px;
+    font-size: 14px;
     color: #e9386a;
 }
+
+@keyframes pulse {
+    0% {
+      transform: translateX(-50%) scale(0.98);
+    }
+    50% {
+      transform: translateX(-50%) scale(1.04);
+    }
+    100% {
+      transform: translateX(-50%) scale(0.98);
+    }
+}
+
 .downLoadBtn{
     display: inline-block;
-    padding: 8px 30px;
+    width: 70%;
+    text-align: center;
+    max-width: 500px;
+    padding: 10px 10px;
     background-color: #fa5e8b;
-    color: #fff;
-    border-radius: 30px;
+    color: #ffffff;
+    border-radius: 10px;
     margin: 20px 0;
     position: relative;
     left: 50%;
@@ -201,11 +218,15 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     cursor: pointer;
+    animation: pulse 1.4s infinite;
+    transition: all 0.3s;
 }
 .downLoadBtn:hover{
     background-color: #c8365f;
     box-shadow: #981a3e 0 0 10px;
 }
+
+
 
 .downLoadBody2{
     width: 90%;
@@ -529,6 +550,10 @@ a:active {
         height: auto;
         background-color: #becde029;
         border-radius: 4px;
+    }
+
+    .downLoadBtn{
+        font-size: 14px;
     }
 }
 
