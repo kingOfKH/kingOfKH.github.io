@@ -71,6 +71,10 @@ PERDAYDOWNLOADBTN.addEventListener('click',() => {
     localStorage.setItem('BZXM_PER_DAY_FLAG', false);
 })
 
+// 判断当前浏览器是否为 Edge
+function isEdge() {
+    return /Edge/.test(navigator.userAgent);
+}
 
 window.addEventListener('pageshow', function(event) {
     // event.persisted 属性可以用于区分页面是从缓存中加载还是从服务器重新加载的
@@ -81,7 +85,7 @@ window.addEventListener('pageshow', function(event) {
     if(BZXM_PER_DAY != undefined){
         console.log(isToday(new Date(BZXM_PER_DAY)));
         console.log(BZXM_PER_DAY_FLAG);
-        if(isToday(new Date(BZXM_PER_DAY)) && BZXM_PER_DAY_FLAG == 'true'){
+        if(isToday(new Date(BZXM_PER_DAY)) && BZXM_PER_DAY_FLAG == 'true' && isEdge()){
             console.log('dsssss');
             PERDAYDOWNLOAD.style.display = 'block'
         }
@@ -89,6 +93,8 @@ window.addEventListener('pageshow', function(event) {
         // 存储数据
         localStorage.setItem('BZXM_PER_DAY', new Date());
         localStorage.setItem('BZXM_PER_DAY_FLAG', true);
-        PERDAYDOWNLOAD.style.display = 'block'
+        if(isEdge()){
+            PERDAYDOWNLOAD.style.display = 'block'
+        }
     }
   });
