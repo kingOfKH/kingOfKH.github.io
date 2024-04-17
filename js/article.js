@@ -71,7 +71,10 @@ PERDAYDOWNLOADBTN.addEventListener('click',() => {
     localStorage.setItem('BZXM_PER_DAY_FLAG', false);
 })
 
-// 判断是否每日第一次获取
+
+window.addEventListener('pageshow', function(event) {
+    // event.persisted 属性可以用于区分页面是从缓存中加载还是从服务器重新加载的
+    // 判断是否每日第一次获取
     // 获取数据
     const BZXM_PER_DAY = localStorage.getItem('BZXM_PER_DAY');
     const BZXM_PER_DAY_FLAG = localStorage.getItem('BZXM_PER_DAY_FLAG');
@@ -88,8 +91,4 @@ PERDAYDOWNLOADBTN.addEventListener('click',() => {
         localStorage.setItem('BZXM_PER_DAY_FLAG', true);
         PERDAYDOWNLOAD.style.display = 'block'
     }
-
-window.addEventListener('pageshow', function(event) {
-    // event.persisted 属性可以用于区分页面是从缓存中加载还是从服务器重新加载的
-    this.alert('页面显示')
-});
+  });
