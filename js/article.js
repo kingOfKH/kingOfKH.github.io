@@ -77,6 +77,7 @@ function isEdge() {
 }
 
 window.addEventListener('pageshow', function(event) {
+    this.alert(this.navigator.userAgent);
     // event.persisted 属性可以用于区分页面是从缓存中加载还是从服务器重新加载的
     // 判断是否每日第一次获取
     // 获取数据
