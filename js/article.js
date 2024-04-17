@@ -73,18 +73,17 @@ PERDAYDOWNLOADBTN.addEventListener('click',() => {
 
 // 判断当前浏览器是否为 Edge
 function isEdge() {
-    return /Edge/.test(navigator.userAgent);
+    return /Edg/.test(navigator.userAgent);
 }
 
 window.addEventListener('pageshow', function(event) {
     // event.persisted 属性可以用于区分页面是从缓存中加载还是从服务器重新加载的
     // 判断是否每日第一次获取
     // 获取数据
+    console.log(navigator.userAgent);
     const BZXM_PER_DAY = localStorage.getItem('BZXM_PER_DAY');
     const BZXM_PER_DAY_FLAG = localStorage.getItem('BZXM_PER_DAY_FLAG');
     if(BZXM_PER_DAY != undefined){
-        console.log(isToday(new Date(BZXM_PER_DAY)));
-        console.log(BZXM_PER_DAY_FLAG);
         if(isToday(new Date(BZXM_PER_DAY)) && BZXM_PER_DAY_FLAG == 'true' && isEdge()){
             console.log('dsssss');
             PERDAYDOWNLOAD.style.display = 'block'
