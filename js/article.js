@@ -63,37 +63,19 @@ function isToday(someDate) {
 }
 
 const PERDAYDOWNLOAD = document.getElementById('PERDAYDOWNLOAD')
-// const PERDAYDOWNLOADBTN = document.getElementById('PERDAYDOWNLOADBTN')
-// if(PERDAYDOWNLOADBTN != undefined){
-//     PERDAYDOWNLOADBTN.addEventListener('click',(e) => {
-//         let freeNum = localStorage.getItem('freeNum');
-//         if(freeNum != undefined){
-//             if(+freeNum >= 3){
-//                 alert('网络错误!');
-//                 e.preventDefault()
-//             }else{
-//                 freeNum = +freeNum + 1;
-//                 localStorage.setItem('freeNum',freeNum);
-//             }
-//         } else{
-//             localStorage.setItem('freeNum',1);
-//         }
-//     })
-// }
 
 
 
 window.addEventListener('pageshow', function(event) {
     // event.persisted 属性可以用于区分页面是从缓存中加载还是从服务器重新加载的
-    // 判断是否每日第一次获取
-    // 获取数据
     isPERDAY();
   });
 
   const isPERDAY = () => {
     if(isTimeInRange()){
-        console.log('aaa');
         PERDAYDOWNLOAD.style.display = 'block'
+    }else{
+        PERDAYDOWNLOAD.style.display = 'none'
     }
   }
 
