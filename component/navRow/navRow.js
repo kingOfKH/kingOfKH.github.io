@@ -4,16 +4,9 @@ const navRow = document.getElementById('navRow')
 const menuBar = document.getElementById('menuBar')
 // 菜单条 标题ico
 const homeICO = document.getElementById('homeICO')
-// 菜单栏 menuSelect
-const menuSelect = document.getElementById('menuSelect')
 // 菜单栏 menuSelector
 const menuSelector= document.getElementById('menuSelector')
-// 菜单栏 option 主页
-const homeBtn = document.getElementById('homeBtn')
-// 菜单栏 niceGame 精品游戏
-const niceGame = document.getElementById('niceGame')
-// 菜单栏 pcGame 热门游戏
-const pcGame = document.getElementById('pcGame')
+
 // 菜单栏 menuMask
 const menuMask = document.getElementById('menuMask')
 // 菜单搜索 nav_search
@@ -34,7 +27,6 @@ const toastBtn = document.getElementById('toastBtn')
 let menuFlag = 0;
 menuBar.addEventListener('click',() => {
     if(menuFlag == 0){
-        // menuSelect.style.display = 'block'
         navRow.style.boxShadow = 'none';
         menuMask.style.display = 'block';
         menuSelector.style.transform = 'translateX(0)';
@@ -43,7 +35,6 @@ menuBar.addEventListener('click',() => {
     }else{
         navRow.style.boxShadow = '#c6c6c67b 0 1px 4px';
         menuMask.style.display = 'none'
-        menuSelect.style.display = 'none'
         menuSelector.style.transform = 'translateX(-110%)';
         menuBar.style.backgroundImage = "url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/menuBar.png?inline=false')";
         menuFlag = 0;
@@ -53,7 +44,6 @@ menuBar.addEventListener('click',() => {
 menuMask.addEventListener('click',() => {
     navRow.style.boxShadow = '#c6c6c67b 0 1px 4px';
     menuMask.style.display = 'none'
-    menuSelect.style.display = 'none'
     menuSelector.style.transform = 'translateX(-110%)';
     menuBar.style.backgroundImage = "url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/menuBar.png?inline=false')";
     menuFlag = 0;
@@ -66,33 +56,6 @@ homeICO.addEventListener('click',() => {
 })
 
 
-// 点击菜单栏 homeBtn
-homeBtn.addEventListener('click',() => {
-    toHome()
-})
-
-// 点击菜单栏 精品游戏
-niceGame.addEventListener("click",() => {
-    let ref = '../../html/classify.html?classify=精品游戏'
-    window.location.href = ref
-})
-// 点击菜单栏 热门游戏
-pcGame.addEventListener("click",() => {
-    let ref = '../../html/classify.html?classify=热门游戏'
-    window.location.href = ref
-})
-
-// 点击菜单栏 动漫漫画
-animal.addEventListener("click",() => {
-    let ref = '../../html/classify.html?classify=动漫漫画'
-    window.location.href = ref
-})
-
-// 点击菜单栏 小说图文
-novel.addEventListener("click",() => {
-    let ref = '../../html/classify.html?classify=小说图文'
-    window.location.href = ref
-})
 
 
 // 跳转主页 携带参数：classify
