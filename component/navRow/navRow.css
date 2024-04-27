@@ -1,16 +1,39 @@
+/* 清除默认的 ul 和 li 样式 */
+ul, ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/* 如果需要清除嵌套列表的默认样式 */
+ul ul, ol ol {
+    margin-left: 0;
+}
+
+/* 清除 li 的默认样式（可选）*/
+li {
+    margin: 0;
+    padding: 0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+
 .navRow{
     width: 100vw;
     height: 60px;
     background-color: #fff;
-    box-shadow: #a7a7a786 0 2px 6px;
+    box-shadow: #c6c6c67b 0 1px 4px;
     position: fixed;
-    z-index: 99;
+    z-index: 110;
 }
 .menuBar{
     position: absolute;
     width: 60px;
     height: 60px;
-    background: url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/%E8%8F%9C%E5%8D%95.png?inline=false');
+    background-image: url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/menuBar.png?inline=false');
     background-size: 40% 40%;
     background-repeat: no-repeat;
     background-position: center;
@@ -41,7 +64,7 @@
     right: 6px;
     width: 60px;
     height: 60px;
-    background: url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/search_pink.png?inline=false');
+    background: url('/imgs/search1.png');
     background-size: 40% 40%;
     background-repeat: no-repeat;
     background-position: center;
@@ -56,12 +79,13 @@
     height: 100vh;
     background-color: #3c3c3c4b;
     transition: all 0.3s;
+    z-index: 10;
 }
 #searchToast{
-    position: relative;
+    position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-300%);
     width: 80%;
     max-width: 700px;
     height: 240px;
@@ -72,6 +96,8 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    transition: all 0.3s;
+    z-index: 30;
 }
 .toastTitle{
     text-align: center;
@@ -133,8 +159,95 @@
     width: 100vw;
     height: 100vh;
     position: fixed;
-    background-color: #ffffff00;
+    background-color: #383838d9;
+    z-index: 80;
 }
+
+.menuSelector{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 282px;
+    height: 100vh;
+    transform: translateX(-110%);
+    padding: 70px 20px;
+    z-index: 99;
+    background-color: #fff;
+    transition: all 0.3s;
+    box-shadow: #5b5b5b 2px 0 10px;
+}
+.menuOptions{
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #fcedef79;
+}
+.menuItem{
+    width: 100%;
+    height: auto;
+}
+.menuItem1{
+    display: inline-block;
+    height: 32px;
+    color: #595959;
+    font-size: 14px;
+    text-align: center;
+    padding: 6px 15px;
+}
+.menuItem1::before{
+    content: '';
+    width: .4em;
+    height: .4em;
+    border: .1em solid #5fb2de;
+    border-radius: 50%;
+    margin: 0 .5em;
+    vertical-align: .1em;
+    display: inline-block;
+    margin: 0;
+    outline: 0!important;
+    margin-right: 12px;
+}
+.menuItem1:hover{
+    color: #5fb2de;
+    text-decoration: none;
+}
+.menuItem2{
+    width: 100%;
+    height: auto;
+    padding: 4px 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.menuItem2Sub{
+    width: 47%;
+    height: 32px;
+    padding: 10px auto;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    text-align: center;
+    background-color: #fee6ed;
+}
+.menuItem2Sub:hover{
+    background-color: #ffd5e3;
+}
+.menuItem2SubLink{
+    width: 100%;
+    display: inline-block;
+    height: 32px;
+    color: #595959;
+    font-size: 13px;
+    text-align: center;
+    padding: 6px 15px;
+}
+.menuItem2Sub:hover .menuItem2SubLink{
+    color: #3466c9;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+
 .menuSelect{
     display: none;
     position: fixed;
