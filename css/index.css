@@ -36,12 +36,14 @@ h1{
 .homePageMain{
     transition: all 0.3s;
     width: 80%;
+    max-width: 768px;
     height: auto;
 }
 
 .top{
     width: 100%;
     height: 320px;
+    border-radius: 10px;
     padding-top: 50px;
     background:url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/background.jpg?inline=false') no-repeat;
     background-position: center;
@@ -149,7 +151,7 @@ h1{
     box-sizing: border-box;
 }
 .card{
-    width: 23vw;
+    width: 30%;
     margin-bottom: 20px;
     border-radius: 6px;
     background-color: #fffbf6;
@@ -185,8 +187,8 @@ h1{
 .cover_load{
     position: absolute;
     top: 50%;
-    width: 20vw;
-    height: 20vw;
+    width: 20%;
+    height: auto;
     left: 50%;
     transform: translate(-50%,-50%);
     background:url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/load.gif?inline=false') center;
@@ -451,12 +453,12 @@ h1{
     display: flex;
 }
 
-.gundong{
+/* .gundong{
     width: 96vw;
     height: 56vw;
     background-color: #5994e188;
     margin: 10px auto;
-}
+} */
 
 
 .Resource{
@@ -488,7 +490,7 @@ h1{
     border-bottom: #ff0070 solid 4px;
 }
 .getMore{
-    width: 70vw;
+    width: 70%;
     max-width: 220px;
     height: 40px;
     line-height: 40px;
@@ -685,13 +687,36 @@ h1{
         pointer-events: none;
     }
     .top{
-        padding-top: 70px;
+        padding-top: 24px;
+        width: 100%;
+        height: 260px;
+        border-radius: 10px;
+        background:url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/background.jpg?inline=false') no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+}
+
+@media (max-width: 400px) {
+    .head_img{
+        width: 200px;
+        height: auto;
+        pointer-events: none;
+    }
+    .top{
+        padding-top: 20px;
+        width: 100%;
+        height: 220px;
+        border-radius: 10px;
+        background:url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/background.jpg?inline=false') no-repeat;
+        background-position: center;
+        background-size: cover;
     }
 }
 
 @media (max-width: 320px) {
     .card{
-        width: 81vw;
+        width: 81%;
         margin-bottom: 20px;
         border-radius: 6px;
         background-color: #fffbf6;
@@ -700,10 +725,24 @@ h1{
         box-shadow: #d6410f 0 0 8px;
     }
     .cover{
-        width: 81vw;
-        height: 54vw;
-        background-color: aquamarine;
+        width: 100%;
+        background-color: #fffbf6;
+        position: relative;
+        padding-top: 60%;
+    }
+    .cover_img{
+        pointer-events: none;
+        width: 100%;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgb(175, 182, 182);
 
+        height: 100%;
+        object-fit:cover;
     }
 }
 
@@ -750,6 +789,9 @@ h1{
     .noticeCard{
         background-color: #232323;
     }
+    .noticeCardMain{
+        background-color: #232323;
+    }
     .noticeCard:hover{
         position: relative;
         box-shadow: #5e5e5e00 0 0 8px;
@@ -778,6 +820,9 @@ h1{
     }
     .cover{
         background-color: #303030;
+    }
+    .cover_img{
+        background-color: #b1b1b1;
     }
     .cTitle{
         color: #eee;

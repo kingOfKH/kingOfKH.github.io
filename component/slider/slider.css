@@ -74,7 +74,13 @@
 
 
   @media (max-width: 500px) {
-    .slideDot{
-      margin: 0 3px;
+    .slideDot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: rgba(51, 252, 161, 0.501);
+      border-radius: 50%;
+      margin: 0 2px;
+      cursor: pointer;
     }
   }
