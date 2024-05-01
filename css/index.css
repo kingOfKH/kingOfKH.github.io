@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: HarmonyOS_Sans_SC_Regular,-apple-system, "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft Yahei", sans-serif;;
     /* 其他样式属性重置 */
 }
 body{
@@ -23,14 +22,25 @@ h1{
 
 
 .container{
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
 }
+.homePage{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: auto;
+}
+.homePageMain{
+    transition: all 0.3s;
+    width: 80%;
+    height: auto;
+}
 
 .top{
-    width: 100vw;
+    width: 100%;
     height: 320px;
     padding-top: 50px;
     background:url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/background.jpg?inline=false') no-repeat;
@@ -153,14 +163,22 @@ h1{
     box-shadow: #d60f16cc 0 0 8px;
 }
 .cover{
-    width: 23vw;
-    height: 16vw;
-    overflow: hidden;
+    width: 100%;
+    background-color: #fffbf6;
     position: relative;
+    padding-top: 60%;
 }
 .cover_img{
     pointer-events: none;
     width: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: aqua;
+
     height: 100%;
     object-fit:cover;
 }
@@ -348,13 +366,20 @@ h1{
 .noticeCards{
     width: 100%;
     margin-top: 20px;
+    box-sizing: border-box;
     height: auto;
+}
+.noticeCardMain{
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    overflow:hidden;
+    background-color: #fff;
 }
 .noticeCard{
     text-decoration: none; /* 取消下划线 */
     color: inherit; /* 使用父元素的文本颜色 */
-    display: inline-block;
-    width: 96vw;
+    width: 100%;
     height: auto;
     margin: auto;
     padding: 10px 20px;
@@ -435,7 +460,7 @@ h1{
 
 
 .Resource{
-    width: 96vw;
+    width: 99%;
     height: auto;
     margin: 20px auto;
     /* background: #5994e1; */
@@ -480,10 +505,10 @@ h1{
     background-color: #ff1e7f;
 }
 
-/* 当视口宽度小于等于768px时应用以下样式 */
+/* 当视口宽度小于等于1200px时应用以下样式 */
 @media (max-width: 1200px) {
     .card{
-        width: 30vw;
+        width: 30%;
         margin-bottom: 20px;
         border-radius: 6px;
         background-color: #fffbf6;
@@ -495,16 +520,39 @@ h1{
         box-shadow: #d60f16cc 0 0 8px;
     }
     .cover{
-        width: 30vw;
-        height: 20vw;
-        overflow: hidden;
+        width: 100%;
+        background-color: #fffbf6;
         position: relative;
+        padding-top: 60%;
+    }
+    .cover_img{
+        pointer-events: none;
+        width: 100%;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: aqua;
+
+        height: 100%;
+        object-fit:cover;
     }
 }
 
 /* 当视口宽度小于等于768px时应用以下样式 */
 @media (max-width: 768px) {
-    /* 在此处添加针对小屏幕的样式 */
+    .homePage{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        height: auto;
+    }
+    .homePageMain{
+        width: 100%;
+        height: auto;
+    }
     .top{
         height: 300px;
     }
@@ -563,8 +611,8 @@ h1{
     }
 
     .card{
-        width: 47vw;
-        margin-bottom: 2vw;
+        width: 47%;
+        margin-bottom: 2%;
         border-radius: 6px;
         background-color: #fff;
     }
@@ -572,10 +620,24 @@ h1{
         box-shadow: #d6410f 0 0 8px;
     }
     .cover{
-        width: 47vw;
-        height: 30vw;
+        width: 100%;
         background-color: #fffbf6;
+        position: relative;
+        padding-top: 60%;
+    }
+    .cover_img{
+        pointer-events: none;
+        width: 100%;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: aqua;
 
+        height: 100%;
+        object-fit:cover;
     }
     .cover_load{
         position: absolute;
