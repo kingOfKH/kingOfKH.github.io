@@ -32,6 +32,7 @@ h1{
     display: flex;
     justify-content: center;
     height: auto;
+    padding-top: 20px;
 }
 .homePageMain{
     transition: all 0.3s;
@@ -58,8 +59,8 @@ h1{
     width: 6px; /* 修改滚动条宽度（适用于Chrome和Safari） */
 }
 ::-webkit-scrollbar-thumb {
-    background-color: #808080; /* 修改滚动条拖动块的颜色 */
-    border-radius: 6px; /* 修改滚动条拖动块的圆角 */
+    background: linear-gradient(180deg, #FFEB3B 0%, #00BCD4 60%, #ffe503 90%);
+    border-radius: 999px;
   }
   
   ::-webkit-scrollbar-track {
@@ -550,9 +551,10 @@ h1{
         display: flex;
         justify-content: center;
         height: auto;
+        padding-top: 0px;
     }
     .homePageMain{
-        width: 100%;
+        width: 98%;
         height: auto;
     }
     .top{
@@ -699,7 +701,7 @@ h1{
 
 @media (max-width: 400px) {
     .head_img{
-        width: 200px;
+        width: 230px;
         height: auto;
         pointer-events: none;
     }
@@ -711,6 +713,41 @@ h1{
         background:url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/background.jpg?inline=false') no-repeat;
         background-position: center;
         background-size: cover;
+    }
+    .search_div{
+        width: 70%;
+        height: 40px;
+        margin: auto;
+        margin-bottom: 6px;
+        display: flex;
+        overflow: hidden;
+        border-radius: 15px;
+        background-color: #ffffffe6;
+    }
+    #searchText{
+        flex: 1;
+        min-width: 0; 
+        outline: none;
+        border: none;
+        font-size: 17px;
+        padding-left: 30px;
+        color: #de5283;
+        font-weight: 600;
+        letter-spacing: 2px;
+        background-color: transparent;
+    }
+    #search_btn{
+        width: 60px;
+        height: 100%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #search_icon{
+        width: 30px;
+        height: 30px;
+        pointer-events: none;
     }
 }
 
