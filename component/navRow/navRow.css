@@ -116,6 +116,7 @@ li {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    transition: all 0.3s;
 }
 .myICO{
     width: 200px;
@@ -379,6 +380,9 @@ li {
 .menuOptionBar:hover .menuOpBIconAni{
     background-image: url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/%E5%8A%A8%E6%BC%AB%20(1).png?inline=false');
 }
+.menuOptionBar:hover .menuOpBIconFlj{
+    background-image: url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/flj%20(1).png?inline=false');
+}
 .menuOptionBar:hover .menuOpBIconNovel{
     background-image: url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/f4%20(1).png?inline=false');
 }
@@ -426,6 +430,13 @@ li {
     background-position: center;
     background-size: contain;
     background-image: url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/%E5%8A%A8%E6%BC%AB.png?inline=false');
+}
+.menuOpBIconFlj{
+    width: 16px;
+    height: 16px;
+    background-position: center;
+    background-size: contain;
+    background-image: url('https://gitcode.net/2301_78006839/wxpj/-/raw/master/img/web/flj%20(2).png?inline=false');
 }
 .menuOpBIconNovel{
     width: 16px;
@@ -492,17 +503,24 @@ li {
         display: none;
     }
     .myICOBar{
-        left: 30px;
+        display: none;
+        left: 10px;
         transform: translateX(0);
     }
     .menuselectBar{
         display: flex;
     }
 }
+@media (min-width: 900px) {
+    .myICOBar{
+        display: flex;
+        left: 20px;
+    }
+}
 
 @media (min-width: 1200px) {
     .myICOBar{
-        left: 60px;
+        left: 10%;
     }
 }
 
