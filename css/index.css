@@ -684,6 +684,9 @@ h1{
 
 
 @media (max-width: 520px) {
+    .Bar{
+        display: none;
+    }
     .search_div{
         border-radius: 6px;
     }
