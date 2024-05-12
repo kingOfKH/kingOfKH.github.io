@@ -167,6 +167,8 @@ li {
     width: 88%;
     max-width: 700px;
     height: auto;
+    max-height: 80vh;
+    overflow: scroll;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: #3c3c3c99 0 0 10px;
