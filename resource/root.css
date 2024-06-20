@@ -1,0 +1,12 @@
+:root {
+    --bg-color: #f3f3f2;
+    --bg-color-day: #f3f3f2;
+    --bg-color-night: #121212;
+
+    --text-color: #121212;
+    --text-color-day: #121212;
+    --text-color-night: #fff;
+
+    --navBar-color:#fff;
+    --navBar-color-day:#fff;
+}

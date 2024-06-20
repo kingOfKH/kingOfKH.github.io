@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>走马灯效果</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            overflow: hidden; /* 隐藏滚动条 */
+        }
+        .marquee-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        .marquee {
+            display: flex;
+            position: absolute;
+            width: 200%; /* 宽度是两倍屏幕宽度 */
+            animation: scrollLeft 10s linear infinite; /* 动画效果 */
+        }
+        .marquee img {
+            width: 50%; /* 每个图片占据一半屏幕宽度 */
+        }
+        @keyframes scrollLeft {
+            from {
+                left: 0;
+            }
+            to {
+                left: -100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="marquee-container">
+        <div class="marquee">
+            <img src="https://www.iamzlt.com/wp-content/uploads/2022/10/wave1.png" alt="走马灯图片">
+            <img src="https://www.iamzlt.com/wp-content/uploads/2022/10/wave1.png" alt="走马灯图片">
+        </div>
+    </div>
+</body>
+</html>
